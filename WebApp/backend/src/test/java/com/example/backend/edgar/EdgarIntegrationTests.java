@@ -17,12 +17,16 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 public class EdgarIntegrationTests {
 
+
+    @Autowired
+    private EdgarController edgarController;
+
     private MockMvc mockMvc;
 
 
     @BeforeEach
     public void setup() {
-        mockMvc = MockMvcBuilders.standaloneSetup(new EdgarController()).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(edgarController).build();
     }
 
 
