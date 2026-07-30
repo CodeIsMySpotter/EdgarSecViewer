@@ -36,4 +36,12 @@ public class EdgarIntegrationTests {
             .andExpect(status().isOk())
             .andExpect(content().string("OK"));
     }
+
+
+    @Test
+    void getTickerList() throws Exception{
+        mockMvc.perform(get("/core/v1/edgar/tickerList"))
+            .andExpect(status().isOk())
+            .andExpect(content().string("OK"));
+    }
 }
