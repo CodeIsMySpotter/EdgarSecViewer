@@ -13,14 +13,14 @@ import com.example.backend.core.edgar.repositories.TickerRepository;
 import com.example.backend.core.edgar.repositories.models.Ticker;
 
 @Service
-public class EdgarFetchServcie {
+public class EdgarTickerFetchServcie {
 
     private final EdgarEnvVariablesConfig edgarEnvVariablesConfig;
     private final TickerRepository tickerRepository;
 
     private RestClient restClient;
 
-    public EdgarFetchServcie(
+    public EdgarTickerFetchServcie(
             EdgarEnvVariablesConfig edgarEnvVariablesConfig,
             TickerRepository tickerRepository) {
         this.edgarEnvVariablesConfig = edgarEnvVariablesConfig;

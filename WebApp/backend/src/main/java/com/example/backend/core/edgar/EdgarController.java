@@ -9,21 +9,25 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.backend.core.edgar.repositories.models.Ticker;
 import com.example.backend.core.edgar.services.EdgarCleanService;
-import com.example.backend.core.edgar.services.EdgarFetchServcie;
+import com.example.backend.core.edgar.services.EdgarFillingFetchService;
+import com.example.backend.core.edgar.services.EdgarTickerFetchServcie;
 
 @RestController
 @RequestMapping("/core/v1/edgar")
 public class EdgarController {
     
-    private final EdgarFetchServcie fDataFetchServcie;
-    private final EdgarCleanService fDataCleanerService;
+    private final EdgarTickerFetchServcie edgarTickerFetchServcie;
+    private final EdgarFillingFetchService edgarFillingFetchService;
+    private final EdgarCleanService edgarCleanService;
 
     public EdgarController(
-        EdgarFetchServcie dataFetchServcie,
-        EdgarCleanService dataCleanerService
+        EdgarTickerFetchServcie edgarTickerFetchServcie,
+        EdgarFillingFetchService edgarFillingFetchService,
+        EdgarCleanService edgarCleanService
     ) {
-        this.fDataFetchServcie = dataFetchServcie;
-        this.fDataCleanerService = dataCleanerService;
+        this.edgarTickerFetchServcie = edgarTickerFetchServcie;
+        this.edgarFillingFetchService = edgarFillingFetchService;
+        this.edgarCleanService = edgarCleanService;
     }
 
     @GetMapping("/health")
@@ -33,7 +37,7 @@ public class EdgarController {
 
     @GetMapping("/tickerList")
     public ResponseEntity<List<Ticker>> getTickerList(){
-        List<Ticker> result = fDataFetchServcie.getAllTickers();
+        List<Ticker> result = edgarTickerFetchServcie.getAllTickers();
         return ResponseEntity.ok(result);
     }
 
