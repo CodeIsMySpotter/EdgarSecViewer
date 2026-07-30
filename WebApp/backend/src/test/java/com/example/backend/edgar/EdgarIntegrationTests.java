@@ -10,8 +10,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import com.example.backend.core.edgar.EdgarController;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest
 
@@ -42,6 +41,7 @@ public class EdgarIntegrationTests {
     void getTickerList() throws Exception{
         mockMvc.perform(get("/core/v1/edgar/tickerList"))
             .andExpect(status().isOk())
-            .andExpect(content().string("OK"));
+            .andExpect(jsonPath("$").isArray())
+            .andExpect(jsonPath("$").isNotEmpty());
     }
 }

@@ -1,5 +1,7 @@
 package com.example.backend.core.edgar.repositories.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,9 +26,11 @@ public class Ticker {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String ticker;
-
+    @JsonProperty("cik_str")
     private String cik;
+    
+    private String ticker;
+    private String title;
 
     
 
