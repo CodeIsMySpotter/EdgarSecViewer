@@ -44,4 +44,12 @@ public class EdgarIntegrationTests {
             .andExpect(jsonPath("$").isArray())
             .andExpect(jsonPath("$").isNotEmpty());
     }
+
+
+    @Test
+    void fetchFilling() throws Exception {
+        mockMvc.perform(get("/core/v1/edgar/fillings/fetch"))
+            .andExpect(status().isOk())
+            .andExpect(content().string("OK"));
+    }
 }

@@ -37,6 +37,11 @@ public class EdgarController {
         return ResponseEntity.ok(result);
     }
 
+    @GetMapping("/fillings/fetch")
+    public ResponseEntity<String> fetchFilling() {
+        return ResponseEntity.ok("OK");
+    } 
+
 
 
 }
