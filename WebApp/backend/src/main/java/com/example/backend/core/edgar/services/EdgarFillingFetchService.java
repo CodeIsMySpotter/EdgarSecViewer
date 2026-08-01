@@ -5,4 +5,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class EdgarFillingFetchService {
     
+    private final EdgarCleanService edgarCleanService;
+
+    public EdgarFillingFetchService(
+        EdgarCleanService edgarCleanService
+    ) {
+        this.edgarCleanService = edgarCleanService;
+    }
 }
