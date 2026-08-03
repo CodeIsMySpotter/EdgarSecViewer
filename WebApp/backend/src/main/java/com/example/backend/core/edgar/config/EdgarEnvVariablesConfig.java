@@ -10,6 +10,7 @@ public class EdgarEnvVariablesConfig {
     private String baseUrl; 
     private String userAgent;
     private String tickersFile;
+    private String fillingsUrl;
 
     public String getTickersFile() {
         return tickersFile;
@@ -25,6 +26,15 @@ public class EdgarEnvVariablesConfig {
 
     public void setBaseUrl(String baseUrl) {
         this.baseUrl = baseUrl;
+    }
+
+
+    public void setFillingsUrl(String fillingsUrl) {
+        this.fillingsUrl = fillingsUrl;
+    }
+
+    public String getFillingsUrl() {
+        return fillingsUrl;
     }
 
     public String getUserAgent() {

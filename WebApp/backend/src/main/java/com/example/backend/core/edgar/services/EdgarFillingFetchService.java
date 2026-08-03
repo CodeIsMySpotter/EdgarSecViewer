@@ -12,4 +12,9 @@ public class EdgarFillingFetchService {
     ) {
         this.edgarCleanService = edgarCleanService;
     }
+
+
+    public void fetchFilling(String cik) {
+        
+    }
 }

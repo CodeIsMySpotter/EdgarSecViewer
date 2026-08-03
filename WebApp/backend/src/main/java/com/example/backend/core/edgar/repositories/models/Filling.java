@@ -13,10 +13,5 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Filling {
     private String cik;
-    private String accessionNumber;
-
-    // EXTENDS FIELDS TO COVER ALL THE PARANETERS
-
-    private String filingDate;
-    private String reportDate;
+    
 }
